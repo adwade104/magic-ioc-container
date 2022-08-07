@@ -25,7 +25,8 @@ public class ServiceScanningService {
 
     public Set<ServiceDetail<?>> mapServices(Set<Class<?>> locatedClasses){
         final Set<ServiceDetail<?>> serviceDetails = new HashSet<>();
-        final Set<Class<? extends Annotation>> customServiceAnnotations = customAnnotationConfig.getCustomServiceAnnotations();
+        final Set<Class<? extends Annotation>> customServiceAnnotations =
+                customAnnotationConfig.getCustomServiceAnnotations();
 
         for(Class<?> clazz : locatedClasses){
             if(clazz.isInterface()){
@@ -44,6 +45,7 @@ public class ServiceScanningService {
                             findBeans(clazz));
 
                     serviceDetails.add(serviceDetail);
+                    break;
                 }
             }
         }
@@ -89,6 +91,7 @@ public class ServiceScanningService {
             for(Class<? extends Annotation> beanAnnotation : beanAnnotations){
                 if(method.isAnnotationPresent(beanAnnotation)){
                     beanMethods.add(method);
+                    break;
                 }
             }
 

@@ -33,6 +33,7 @@ public class ServiceDetail<T> {
                          Method[] beans){
 
         this();
+        this.setServiceType(serviceType);
         this.setAnnotation(annotation);
         this.setTargetConstructor(targetConstructor);
         this.setPostConstructMethod(postConstructMethod);
@@ -125,5 +126,14 @@ public class ServiceDetail<T> {
         int result = Objects.hash(serviceType, annotation, targetConstructor, instance, postConstructMethod, preDestroyMethod, dependentServices);
         result = 31 * result + Arrays.hashCode(beans);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        if (this.serviceType == null) {
+            return super.toString();
+        }
+
+        return this.serviceType.getName();
     }
 }

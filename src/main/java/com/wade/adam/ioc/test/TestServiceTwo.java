@@ -13,14 +13,10 @@ public class TestServiceTwo {
     }
 
     @PostConstruct
-    private void onInit(int age){
-
-    }
+    private void onInit(){ }
 
     @PreDestroy
-    public String onDestroy(){
-        return null;
-    }
+    public void onDestroy(){ }
 
     @Bean
     public TestServiceThree testServiceThree(){
